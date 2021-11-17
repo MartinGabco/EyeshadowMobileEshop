@@ -1,79 +1,25 @@
 import React from 'react';
-import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, Platform, StatusBar } from 'react-native';
+import { useDeviceOrientation } from '@react-native-community/hooks';
 
 interface Props {}
 
 const ProductsScreen: React.FC<Props> = props => {
+
    return (
       <ScrollView>
       <View style={styles.container}>
-         <View style={styles.header}/>
-         <View style={styles.main}/>
+         <View style={styles.header}>
+               <Text>TEST</Text>        
+         </View>
+         <View style={styles.title}/>
+         <View style={styles.slideshow}>
+            <Text>TEST</Text>
+         </View>
+         <View style={styles.categories}/>
+         <View style={styles.filter}/>
+         <View style={styles.products}/>
          <View style={styles.footer}/>
-         <View style={styles.item}>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-         </View>
-         <View style={styles.box}>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-            <Text>First</Text>
-         </View>
       </View>
       </ScrollView>
     );
@@ -82,33 +28,39 @@ const ProductsScreen: React.FC<Props> = props => {
 const styles = StyleSheet.create({
    container: {
       width:"100%",
-      backgroundColor: '#ffff00',
+      paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
    },
    header: {
-      width: "100%",
-      minHeight: 200,
+      minHeight: 175,
       backgroundColor:"#99ffff",
    },
-   main: {
-      width: "100%",
-      minHeight: 200,
+   title: {
+      minHeight: 180,
       backgroundColor:"#ffff80",
    },
-   footer: {
-      width: "100%",
-      minHeight: 100,
+   slideshow: {
+      minHeight: 365,
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
       backgroundColor:"#9999ff",
    },
-   item: {
-      width: "100%",
-      minHeight: 180,
-      backgroundColor:"green",
+   categories: {
+      minHeight: 240,
+      backgroundColor:"#ffb3d1",
    },
-   box: {
-      width: "100%",
-      minHeight: 180,
-      backgroundColor:"red",      
-   }
+   filter: {
+      minHeight: 145,
+      backgroundColor:"#b3ff99",      
+   },
+   products: {
+      minHeight: 780,
+      backgroundColor:"#b3f0ff",      
+   },
+   footer: {
+      minHeight: 350,
+      backgroundColor:"#e6b3ff",      
+   },   
 });
 
 export default ProductsScreen;
